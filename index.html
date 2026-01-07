@@ -3,52 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Shakil Mahamud Shourov | Portfolio</title>
+    <title>Md. Shakil Mahamud Shourov | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; padding: 50px 0; background: #f4f4f4; border-radius: 10px; }
-        h1 { margin: 0; color: #2c3e50; }
-        .btn { display: inline-block; background: #3498db; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .project-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
-        .skills li { background: #e0e0e0; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; }
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        /* --- Project Card --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tech-stack {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* --- Skills --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover {
+            border-bottom: 3px solid var(--primary-color);
+            background: #2d3748;
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- Contact Form --- */
+        .contact-wrapper {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #334155;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Md. Shakil Mahamud Shourov</h1>
-    <p>Software Developer | SEU Student</p>
-    <a href="mailto:2020000000050@seu.edu.bd" class="btn">Email Me Directly</a>
-</header>
+    <header>
+        <div class="container">
+            <h1>Md. Shakil Mahamud Shourov</h1>
+            <p class="tagline">Software Developer | SEU Student | Tech Enthusiast</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="https://github.com/2020000000050-jpg" target="_blank" class="btn btn-outline">GitHub Profile</a>
+            </div>
+        </div>
+    </header>
 
-<section>
-    <h2>About Me</h2>
-    <p>I am passionate about building software that solves real-world problems. My goal is to create efficient systems that make life easier for users.</p>
-</section>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem; max-width: 800px;">
+                I am a passionate Software Developer based in Bangladesh. Currently studying at Southeast University (SEU), 
+                I focus on creating robust backend architectures and clean, user-friendly frontend experiences. 
+                I love solving complex problems and turning ideas into functional software.
+            </p>
+        </section>
 
-<section>
-    <h2>Top Project</h2>
-    <div class="project-card">
-        <h3>Healthcare Management System</h3>
-        <p>A robust system designed to manage medical records and hospital workflows efficiently.</p>
-        <a href="https://github.com/2020000000050-jpg/healthcare-management-system" target="_blank">View Project on GitHub →</a>
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Healthcare Management System</h3>
+                    <p>An advanced digital infrastructure to manage hospital workflows, doctor appointments, and electronic medical records (EMR).</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">System Design</span>
+                    </div>
+                    <a href="https://github.com/2020000000050-jpg/healthcare-management-system" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Explore Code →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-item"><i class="fab fa-java"></i><p>Java</p></div>
+                <div class="skill-item"><i class="fas fa-database"></i><p>SQL & DBMS</p></div>
+                <div class="skill-item"><i class="fab fa-python"></i><p>Python</p></div>
+                <div class="skill-item"><i class="fas fa-code-branch"></i><p>Git & Version Control</p></div>
+                <div class="skill-item"><i class="fas fa-laptop-code"></i><p>System Design</p></div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-wrapper">
+                <form action="https://formspree.io/f/xoqykpwp" method="POST">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Message</label>
+                        <textarea name="message" rows="5" placeholder="Let's talk about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
+        </section>
     </div>
-</section>
 
-<section>
-    <h2>Technical Skills</h2>
-    <ul class="skills">
-        <li>Java</li>
-        <li>Database Management</li>
-        <li>System Design</li>
-        <li>Problem Solving</li>
-    </ul>
-</section>
-
-<footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #777;">
-    &copy; 2026 Md. Shakil Mahamud Shourov
-</footer>
+    <footer>
+        <p>&copy; 2026 Md. Shakil Mahamud Shourov. All rights reserved.</p>
+        <p style="margin-top: 10px;">Built with passion & code.</p>
+    </footer>
 
 </body>
 </html>
