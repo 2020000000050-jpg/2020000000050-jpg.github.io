@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Shakil Mahamud Shourov | Software Developer</title>
+    <title>Md. Shakil Mahamud Shourov | Software Engineer Portfolio</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -12,8 +13,9 @@
             --primary: #38bdf8;
             --secondary: #818cf8;
             --bg: #020617;
-            --card: rgba(30, 41, 59, 0.7);
+            --card: rgba(30, 41, 59, 0.5);
             --text: #f8fafc;
+            --accent: #22d3ee;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -23,34 +25,42 @@
             background-color: var(--bg);
             color: var(--text);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Animated Background Mesh */
-        body::before {
-            content: "";
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05), transparent 40%);
+        /* Abstract Background Elements */
+        .bg-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);
+            border-radius: 50%;
             z-index: -1;
+            filter: blur(80px);
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* Navigation */
+        /* Navigation Bar */
         nav {
-            padding: 20px 0;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky; top: 0; z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
 
         /* Hero Section */
         header {
-            height: 90vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,114 +68,148 @@
             text-align: center;
         }
 
-        .badge {
+        .hero-badge {
             background: rgba(56, 189, 248, 0.1);
             color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Glass Cards */
+        /* Glassmorphism Cards */
         .glass-card {
             background: var(--card);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 40px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Projects */
-        .project-grid { display: grid; gap: 30px; margin-top: 40px; }
-
         .btn {
-            padding: 12px 30px;
-            border-radius: 12px;
+            padding: 14px 35px;
+            border-radius: 14px;
             text-decoration: none;
             font-weight: 700;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             transition: 0.3s;
             background: var(--primary);
             color: #020617;
         }
 
-        /* Advanced Contact Form */
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* Projects Section */
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; text-align: center; }
+
+        /* Contact Form */
         form { display: grid; gap: 20px; }
         input, textarea {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px;
+            border-radius: 14px;
             color: white;
-            outline: none;
+            font-family: inherit;
+            transition: 0.3s;
         }
-        input:focus { border-color: var(--primary); }
+        input:focus, textarea:focus { border-color: var(--primary); outline: none; background: rgba(30, 41, 59, 1); }
 
-        footer { text-align: center; padding: 60px 0; color: #64748b; }
+        footer { text-align: center; padding: 80px 0; color: #64748b; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
 <body>
 
+    <div class="bg-glow" style="top: -10%; left: -10%;"></div>
+    <div class="bg-glow" style="bottom: 10%; right: -5%;"></div>
+
     <div class="container">
         <nav>
-            <div class="logo">SMS.DEV</div>
-            <a href="#contact" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Hire Me</a>
+            <div class="logo">SHOUROV<span>.</span></div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#projects" style="color: #94a3b8; text-decoration: none; font-weight: 600;">Projects</a>
+                <a href="#contact" style="color: var(--primary); text-decoration: none; font-weight: 600;">Contact</a>
+            </div>
         </nav>
 
         <header>
-            <div class="badge">AVAILABLE FOR PROJECTS</div>
+            <div class="hero-badge">CSE STUDENT @ SOUTHEAST UNIVERSITY</div>
             <h1>Md. Shakil Mahamud Shourov</h1>
-            <p style="color: #94a3b8; font-size: 1.2rem;">SEU Student | Software Developer | ID: 2020000000050</p>
-            <div style="margin-top: 30px; display: flex; gap: 15px;">
-                <a href="#project" class="btn">View Work</a>
-                <a href="https://github.com/2020000000050-jpg" target="_blank" class="btn" style="background: transparent; border: 1px solid #fff; color: #fff;">GitHub</a>
+            <p style="color: #94a3b8; font-size: 1.2rem; max-width: 600px; margin-bottom: 40px;">
+                Specializing in Software Development and Management Systems. <br>
+                SEU ID: <strong>2020000000050</strong>
+            </p>
+            <div style="display: flex; gap: 20px;">
+                <a href="#projects" class="btn">View My Work <i class="fas fa-arrow-right"></i></a>
+                <a href="https://github.com/2020000000050-jpg" target="_blank" class="btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white;">GitHub Profille</a>
             </div>
         </header>
 
-        <section id="project">
-            <h2 style="font-size: 2rem; margin-bottom: 30px;">Featured Project</h2>
+        <section id="projects" style="padding: 100px 0;">
+            <h2 class="section-title">Major Engineering Projects</h2>
             <div class="glass-card">
-                <h3 style="color: var(--primary); margin-bottom: 10px;">Healthcare Management System</h3>
-                <p style="color: #cbd5e1; margin-bottom: 20px;">An advanced digital infrastructure to manage hospital workflows, doctor appointments, and medical records.</p>
-                <a href="https://github.com/2020000000050-jpg/healthcare-management-system" target="_blank" class="project-link" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Explore Repository →</a>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                    <div>
+                        <h3 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 15px;">Healthcare Management System</h3>
+                        <p style="color: #cbd5e1; max-width: 600px; margin-bottom: 25px;">
+                            A comprehensive digital solution for hospital operations, optimizing patient records, doctor scheduling, and administrative transparency.
+                        </p>
+                        <a href="https://github.com/2020000000050-jpg/healthcare-management-system" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: 800;">EXPLORE REPOSITORY <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="contact" style="padding: 100px 0;">
-            <div class="glass-card">
-                <h2 style="margin-bottom: 10px;">Let's Connect</h2>
-                <p style="color: #94a3b8; margin-bottom: 30px;">Have a question or want to work together? Send a message directly to my SEU email.</p>
+            <div class="glass-card" style="max-width: 700px; margin: 0 auto;">
+                <h2 style="margin-bottom: 15px; text-align: center;">Get In Touch</h2>
+                <p style="color: #94a3b8; text-align: center; margin-bottom: 40px;">
+                    Required for Assignment: This form delivers messages directly to my university email via FormSubmit API.
+                </p>
                 
                 <form action="https://formsubmit.co/2020000000050@seu.edu.bd" method="POST">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Your University Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-                    <button type="submit" class="btn">Send Encrypted Message</button>
+                    <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <textarea name="message" rows="6" placeholder="Project details or your message..." required></textarea>
+                    
+                    <input type="hidden" name="_next" value="https://2020000000050-jpg.github.io/">
+                    
+                    <button type="submit" class="btn" style="width: 100%; justify-content: center;">Send Secure Message</button>
                 </form>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 Md. Shakil Mahamud Shourov. Built with Passion.</p>
+            <p>&copy; 2026 Md. Shakil Mahamud Shourov | Student ID: 2020000000050</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #475569;">Deployed on GitHub Pages Cloud Infrastructure</p>
         </footer>
     </div>
 
