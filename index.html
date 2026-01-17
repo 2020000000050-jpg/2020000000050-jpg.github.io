@@ -3,121 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Shakil Mahamud Shourov | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Md. Shakil Mahamud Shourov | Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
             --primary: #38bdf8;
+            --secondary: #818cf8;
+            --bg: #020617;
+            --card: rgba(30, 41, 59, 0.7);
             --text: #f8fafc;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+
+        /* Animated Background Mesh */
+        body::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05), transparent 40%);
+            z-index: -1;
         }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+
+        /* Hero Section */
         header {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(to bottom, #1e293b, #0f172a);
-        }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--primary); }
-        section { margin-bottom: 40px; }
-        h2 { border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; }
-        .card {
-            background: var(--card);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        form {
+            height: 90vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: white;
-            font-size: 1rem;
+
+        .badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
-        button {
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Projects */
+        .project-grid { display: grid; gap: 30px; margin-top: 40px; }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
             background: var(--primary);
-            color: #0f172a;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
+            color: #020617;
         }
-        button:hover { background: #7dd3fc; }
-        footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.9rem; }
+
+        /* Advanced Contact Form */
+        form { display: grid; gap: 20px; }
+        input, textarea {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+        }
+        input:focus { border-color: var(--primary); }
+
+        footer { text-align: center; padding: 60px 0; color: #64748b; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Md. Shakil Mahamud Shourov</h1>
-    <p>Student at Southeast University (SEU) | Software Developer</p>
-    <p>ID: 2020000000050</p>
-</header>
+    <div class="container">
+        <nav>
+            <div class="logo">SMS.DEV</div>
+            <a href="#contact" class="btn" style="padding: 8px 20px; font-size: 0.9rem;">Hire Me</a>
+        </nav>
 
-<div class="container">
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>I am a CSE student at SEU, focused on developing efficient software solutions. I am passionate about technology and improving healthcare management through code.</p>
-        </div>
-    </section>
+        <header>
+            <div class="badge">AVAILABLE FOR PROJECTS</div>
+            <h1>Md. Shakil Mahamud Shourov</h1>
+            <p style="color: #94a3b8; font-size: 1.2rem;">SEU Student | Software Developer | ID: 2020000000050</p>
+            <div style="margin-top: 30px; display: flex; gap: 15px;">
+                <a href="#project" class="btn">View Work</a>
+                <a href="https://github.com/2020000000050-jpg" target="_blank" class="btn" style="background: transparent; border: 1px solid #fff; color: #fff;">GitHub</a>
+            </div>
+        </header>
 
-    <section id="project">
-        <h2>Featured Project</h2>
-        <div class="card">
-            <h3>Healthcare Management System</h3>
-            <p>A system to manage patient data and hospital workflows.</p>
-            <a href="https://github.com/2020000000050-jpg/healthcare-management-system" class="project-link" target="_blank">View on GitHub →</a>
-        </div>
-    </section>
+        <section id="project">
+            <h2 style="font-size: 2rem; margin-bottom: 30px;">Featured Project</h2>
+            <div class="glass-card">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Healthcare Management System</h3>
+                <p style="color: #cbd5e1; margin-bottom: 20px;">An advanced digital infrastructure to manage hospital workflows, doctor appointments, and medical records.</p>
+                <a href="https://github.com/2020000000050-jpg/healthcare-management-system" target="_blank" class="project-link" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Explore Repository →</a>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Me (Assignment Requirement)</h2>
-        <div class="card">
-            <form action="https://formsubmit.co/2020000000050@seu.edu.bd" method="POST">
-                <input type="hidden" name="_subject" value="New Message from Portfolio!">
-                <input type="hidden" name="_captcha" value="false">
+        <section id="contact" style="padding: 100px 0;">
+            <div class="glass-card">
+                <h2 style="margin-bottom: 10px;">Let's Connect</h2>
+                <p style="color: #94a3b8; margin-bottom: 30px;">Have a question or want to work together? Send a message directly to my SEU email.</p>
                 
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
-                
-                <input type="hidden" name="_next" value="https://2020000000050-jpg.github.io/">
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+                <form action="https://formsubmit.co/2020000000050@seu.edu.bd" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Your University Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                    <button type="submit" class="btn">Send Encrypted Message</button>
+                </form>
+            </div>
+        </section>
 
-    <footer>
-        &copy; 2026 Md. Shakil Mahamud Shourov | Prepared for Assignment
-    </footer>
-</div>
+        <footer>
+            <p>&copy; 2026 Md. Shakil Mahamud Shourov. Built with Passion.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
