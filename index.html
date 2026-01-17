@@ -44,7 +44,6 @@
             text-decoration: none;
             font-weight: bold;
         }
-        /* Contact Form Styling */
         form {
             display: flex;
             flex-direction: column;
@@ -102,9 +101,13 @@
         <h2>Contact Me (Assignment Requirement)</h2>
         <div class="card">
             <form action="https://formsubmit.co/2020000000050@seu.edu.bd" method="POST">
+                <input type="hidden" name="_subject" value="New Message from Portfolio!">
+                <input type="hidden" name="_captcha" value="false">
+                
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                
                 <input type="hidden" name="_next" value="https://2020000000050-jpg.github.io/">
                 <button type="submit">Send Message</button>
             </form>
